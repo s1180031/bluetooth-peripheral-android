@@ -3,6 +3,7 @@ buildscript {
     val kotlin_version by extra("1.4.0")
     val nav_version by extra("2.3.0")
     val fragment_version by extra("1.2.5")
+    val koin_version by extra("2.1.6")
 
     repositories {
         google()

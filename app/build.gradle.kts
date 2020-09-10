@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val kotlin_version: String by project
 val nav_version: String by project
 val fragment_version: String by project
+val koin_version: String by project
 
 plugins {
     id("com.android.application")
@@ -37,6 +38,10 @@ android {
     tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -63,9 +68,21 @@ dependencies {
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
     //endregion
 
+    //region koin
+    // Koin for Android
+    implementation("org.koin:koin-android:$koin_version")
+    // Koin AndroidX Scope features
+    implementation("org.koin:koin-androidx-scope:$koin_version")
+    // Koin AndroidX ViewModel features
+    implementation("org.koin:koin-androidx-viewmodel:$koin_version")
+    // Koin AndroidX Fragment features
+    implementation("org.koin:koin-androidx-fragment:$koin_version")
+    // Koin AndroidX Experimental features
+    implementation("org.koin:koin-androidx-ext:$koin_version")
+    //endregion
+
     testImplementation("junit:junit:4.12")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
-
 }

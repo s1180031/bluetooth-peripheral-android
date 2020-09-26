@@ -12,6 +12,7 @@ plugins {
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
     id("com.google.firebase.firebase-perf")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -41,6 +42,11 @@ android {
 
     buildFeatures {
         viewBinding = true
+    }
+
+    androidExtensions {
+        isExperimental = true
+        features = setOf("parcelize")
     }
 }
 
@@ -85,4 +91,6 @@ dependencies {
 
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 }

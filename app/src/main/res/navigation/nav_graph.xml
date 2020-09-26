@@ -9,6 +9,20 @@
         android:id="@+id/selectBleTypeFragment"
         android:name="com.github.s1180031.bluetoothperipheral.ui.selectbletype.SelectBleTypeFragment"
         android:label="SelectBleType"
-        tools:layout="@layout/fragment_select_ble_type" />
+        tools:layout="@layout/fragment_select_ble_type">
+        <action
+            android:id="@+id/actionSelectBleTypeFragmentToBleAdvertiseFragment"
+            app:destination="@id/bleAdvertiseFragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/bleAdvertiseFragment"
+        android:name="com.github.s1180031.bluetoothperipheral.ui.bleadvertise.BleAdvertiseFragment"
+        android:label="BleAdvertise"
+        tools:layout="@layout/fragment_ble_advertise">
+
+        <argument
+            android:name="bleType"
+            app:argType="com.github.s1180031.domain.model.BleType" />
+    </fragment>
 </navigation>

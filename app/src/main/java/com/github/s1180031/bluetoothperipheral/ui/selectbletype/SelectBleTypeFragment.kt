@@ -29,12 +29,12 @@ class SelectBleTypeFragment : Fragment() {
         binding = FragmentSelectBleTypeBinding.inflate(inflater, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = SelectBleTypeAdapter()
+        setUpBinding()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindViewModels()
         viewModel.onCreate()
     }
 
@@ -52,7 +52,7 @@ class SelectBleTypeFragment : Fragment() {
         adapter?.listener = null
     }
 
-    private fun bindViewModels() {
+    private fun setUpBinding() {
         viewModel.bleTypesLiveData.observe(viewLifecycleOwner) {
             adapter?.items = it
         }

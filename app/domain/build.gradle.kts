@@ -27,6 +27,15 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
+
+    androidExtensions {
+        isExperimental = true
+        features = setOf("parcelize")
+    }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -44,8 +53,14 @@ dependencies {
     implementation("org.koin:koin-androidx-ext:$koin_version")
     //endregion
 
+    //region BLE
+    implementation("no.nordicsemi.android:ble:2.2.4")
+    implementation("no.nordicsemi.android:ble-common:2.2.4")
+
+    //endregion
     //endregion
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 }

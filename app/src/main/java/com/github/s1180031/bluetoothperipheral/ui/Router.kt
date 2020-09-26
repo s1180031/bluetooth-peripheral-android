@@ -1,4 +1,4 @@
-package com.github.s1180031.bluetoothperipheral.ui.selectbletype
+package com.github.s1180031.bluetoothperipheral.ui
 
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
